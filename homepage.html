@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <title>HomePage</title>
+  </head>
+  <body>
+<div id="app">
+<!-- Just an image -->
+    <nav class="navbar navbar-light bg-light sticky-top " >
+    <a class="navbar-brand" href="#">
+      <img src="./logo.jpeg" height="40" alt="">
+    </a>
+  
+      <a class="navbar-brand my-2 my-lg-0" href="#">
+    {{instructors[user_now].displayName}}        
+    <img v-bind:src="instructors[user_now].avatar" width="40" height="40" class="d-inline-block align-top" alt="">
+
+      </a>
+    </nav><div style=" border-radius: 100px;">
+    <div class="row" style=" border-radius: 100px;">
+
+        <!-- side bar --> 
+        <div class="nav flex-column nav-pills col-2 position-fixed"  id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color: #DAE3F3; height: 90vh; padding-left: 2%;">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" >My Courses</a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+        </div>
+
+             <!-- main    -->
+                 <div class="col-2" style="z-index: -5;"></div>
+ 
+          <div class="tab-content col-lg-10 " id="v-pills-tabContent" style="padding-right: 0%; padding-left: 0%; margin: 0%;">
+
+                    <!-- My courses --> 
+
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" >
+                                    <!-- My courses top bar --> 
+
+                <nav class="navbar navbar-light" style="padding-left: 5%;padding-right: 5%;">
+                    <div class="container">
+                    <h6 class="navbar-brand" href="#">
+                        My Courses
+                    </h6>
+                  
+                    
+                      <a href="./create_a_course.html?#" class="navbar-brand my-2 my-lg-0 btn  btn-sm " role="button" style="  border-radius: 100px; background-color: #8FAADC;"><p style="color: white; ">Create a Course</p></a>
+                    </div>
+                </nav>
+
+                <div class="container" style="background-color: #EDF1F9; ">
+                    <nav class="navbar navbar-light ">
+                        <div class="container">
+                        <h6 class="navbar-brand" href="#" >
+                            Courses in Progress
+                        </h6>
+                      
+                        
+                          <a href="#" class="navbar-brand my-2 my-lg-0 " role="button" style="  border-radius: 100px; ">View All Courses</a>
+                        </div>
+                    </nav>
+                    <div v-show="first_time==true" ><h6>No Courses yet</h6></div>
+
+    <div    class="row" style="padding-left: 10%; padding-right: 10%;" >
+      <div  v-for="item in courses" :key="item.pic" v-show="item.state==false && item.instructors_id==this.user_now" class="card col-4" href="./create_a_course.html?#" >
+            
+           <img class="card-img-top" v-bind:src="item.pic" alt="Card image cap"  >
+            <div class="card-body">
+              <p class="card-text">{{item.name}}</p>
+              <div style=" text-align: center;"> <button type="button" class="btn btn-primary" v-on:click="go_to_created_course(item.uid)" >Edit course</button> </div>
+
+            </div>
+          </div>
+        </div>
+
+
+                </div>
+
+
+
+
+                <div class="container" style="background-color:#DAE3F3 ">
+                <nav class="navbar navbar-light  ">
+                    <div class="container">
+                    <h6 class="navbar-brand" href="#">
+                        Uploadid Courses
+                    </h6>
+                  
+                    
+                      <a href="#" class="navbar-brand my-2 my-lg-0 " role="button" style="  border-radius: 100px;">View All Courses</a>
+                    </div>
+                </nav>
+               
+
+                <div v-show="first_time==true"><h6>No Courses yet</h6></div>
+
+<div    class="row" style="padding-left: 10%; padding-right: 10%;" >
+
+  <div  v-for="item in courses" :key="item.pic" v-show="item.state && item.instructors_id==this.user_now" class="card col-4" href="./create_a_course.html?#">
+        
+       <img class="card-img-top" v-bind:src="item.pic" alt="Card image cap" >
+        <div class="card-body">
+          <p class="card-text">{{item.name}}</p>
+          <div style=" text-align: center;"> <button type="button" class="btn btn-primary" v-on:click="go_to_created_course(item.id)" >Edit course</button> </div>
+        </div>
+      </div>
+    </div>
+
+
+            </div>
+
+
+
+
+            </div>
+
+           <!-- Profile --> 
+
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                Profile
+            </div>
+          </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+    <script>
+      const mountedApp = app.mount('#app');
+     
+
+</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+  </body>
+</html>

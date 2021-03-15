@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://unpkg.com/vue@next"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+
+
+    <title>Update Profile</title>
+  </head>
+  <body>
+<div id="app">
+<!-- Just an image -->
+    <nav class="navbar navbar-light bg-light sticky-top " >
+    <a class="navbar-brand" href="#">
+      <img src="thumbnail_IMG-20210221-WA0024-removebg-preview.png" height="40" alt="">
+    </a>
+  
+      <a class="navbar-brand my-2 my-lg-0" href="#">
+    {{instructors[0].name}}        
+    <img v-bind:src="instructors[0].pic" width="40" height="40" class="d-inline-block align-top" alt="">
+
+      </a>
+    </nav>
+    
+    <div style=" border-radius: 100px;">
+      <div class="row" style=" border-radius: 100px;">
+
+        <!-- side bar --> 
+        <div class="nav flex-column nav-pills col-2 position-fixed"  id="v-pills-tab" role="tablist" aria-orientation="vertical" style="background-color: #DAE3F3; height: 90vh; padding-left: 2%;">
+            <a class="nav-link" id="v-pills-home-tab"  href="./homepage.html" aria-selected="true" >My Courses</a>
+            <a class="nav-link active" id="v-pills-profile-tab" data-toggle="pill" href="./profile.html" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+        </div>
+
+             <!-- main    -->
+                 <div class="col-2" style="z-index: -5;"></div>
+ 
+          <div class="tab-content col-lg-10 " id="v-pills-tabContent" style="padding-right: 0%; padding-left: 0%; margin: 0%;">
+
+                    <!--  Create a Course  --> 
+
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab" >
+                                    <!-- My courses top bar --> 
+
+                <nav class="navbar navbar-light" style="padding-left: 5%;padding-right: 5%;">
+                    <div class="container">
+                    <h6 class="navbar-brand" href="#">
+                        My Profile
+                    </h6>
+                  
+                    
+                    </div>
+                </nav>
+
+                <div class="container" style="background-color: #EDF1F9; ">
+                    <nav class="navbar navbar-light ">
+                        <div class="container">
+                        <h6 class="navbar-brand" href="#" >
+                                Update my profile
+                        </h6>
+                      
+                        
+                        </div>
+                    </nav>
+                    <div style="padding-left: 10%; padding-right: 10%;">
+
+
+                        <form>
+
+                        	<div class="input-group mb-3">
+                                <label for="exampleFormControlInput1" class="col-12">1. Profile Image</label>
+                                
+                                <input type="file" id="image_import_update" v-if="!(course_now==-1)" accept="image/*">
+                                <img class="card-img-top col-4" id="image_import_update_pic" v-bind:src="this.courses[this.course_now].pic" alt="Card image cap" v-if="!(course_now==-1)">
+
+
+                                <label for="exampleFormControlInput1" class="col-12">2. Introductory Video</label>
+                               
+                                <input type="file" id="vedio_import_update" v-if="!(course_now==-1)" accept="video/*">
+                                <video type="video/mp4" controls class=" col-4" id="video_import_update_video" v-bind:src="this.courses[this.course_now].vedio" alt="Card image cap" v-if="!(course_now==-1)">
+                        
+                               
+                              </div>
+
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1" class="col-12">3. Name</label>                             
+                              <input type="Name" class="form-control" id="course_name_update" placeholder="Enter Name" v-bind:value="this.courses[this.course_now].name" v-if="!(course_now==-1)">
+
+                              <label for="exampleFormControlInput1" class="col-12">4. Field</label>
+                              <input type="Name" class="form-control" id="course_name_update" placeholder="Enter Name" v-bind:value="this.courses[this.course_now].name" v-if="!(course_now==-1)">
+
+                              <label for="exampleFormControlInput1" class="col-12">5. Bio</label>
+                              <input type="Name" class="form-control" id="course_name_update" placeholder="Enter Name" v-bind:value="this.courses[this.course_now].name" v-if="!(course_now==-1)">
+
+                              
+
+
+                            </div>
+                           
+                            
+
+
+                            <div class="form-group">
+                              <label for="exampleFormControlTextarea1" class="col-12">6. Education</label>
+                              <textarea class="form-control" id="course_objectives_update" rows="3" v-bind:value="this.courses[this.course_now].objectives" v-if="!(course_now==-1)"></textarea>
+
+                               <label for="exampleFormControlTextarea1" class="col-12">7. Achievements</label>
+                              <textarea class="form-control" id="course_objectives_update" rows="3" v-bind:value="this.courses[this.course_now].objectives" v-if="!(course_now==-1)"></textarea>
+
+                              <label for="exampleFormControlTextarea1" class="col-12">6. Personal Interests</label>
+                              <textarea class="form-control" id="course_objectives_update" rows="3" v-bind:value="this.courses[this.course_now].objectives" v-if="!(course_now==-1)"></textarea>
+                            </div>
+
+                            
+                            <button type="submit" class="btn btn-primary" v-on:click="update_course"  id="update_course_submit" href="" v-show="course_now>-1">Update</button>
+
+                          </form>
+
+
+
+                        
+
+
+
+                      
+                    
+                    </div>
+                   </div>
+
+
+            </div>
+
+            
+          </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center" style="margin: 0;">
+  		<p>Footer Text</p>
+	</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./main.js"></script>
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>UpSkill</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/vue@next"></script>
+
+
+<style>
+	body {
+		background-image: linear-gradient(to right, #6600cc 40%, #66ccff 100%);
+		/*background-image: linear-gradient(to right, violet, blue, violet);*/
+		margin: 0;
+		padding: 0;
+	}
+
+	.logo {
+		padding: 0;
+	}
+
+	.logo img {
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 15%;
+		margin-bottom: 2%;
+	}
+
+	.btn {
+		border-color: rgba(240, 240, 240, 0.4);
+		border-radius: 20px;
+		background-color: transparent;
+		color: white;
+		margin: 1%;
+		padding: 10px 12px;
+		width: 130px;
+		transition: 0.2s;
+		transition-timing-function: ease-in-out;
+	}
+
+	.btn:hover {
+		color: #400080;
+		border-color: transparent;
+		background-color: rgba(255, 255, 255, 0.8);
+	}
+
+	input[type=text], input[type=password] {
+		width: 100%;
+		padding: 2px 1px;
+		margin-bottom: 25px;
+		display: table;
+		border: 0;
+		border-bottom: 1px solid #bdb6b6;
+		outline: none;
+	}
+
+	.container {
+		width: 100%;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	.modal {
+		display: none; /* Hidden by default */
+		z-index: 1; /* Sit on top */
+		width: 100%; /* Full width */
+		height: 100%; /* Full height */
+		overflow: auto; /* Enable scroll if needed */
+		background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+		backdrop-filter: blur(10px);
+		padding-top: 60px;
+	}
+
+	/* Modal Content/Box */
+	.modal-content {
+		margin: 8% auto 12% auto; 
+		width: 380px; 
+		padding: 10px;
+		border: 0;
+		border-radius: 0;
+	}
+
+	.submit {
+		margin: 15px;
+		margin-top: 40px;
+		border-color: rgba(240, 240, 240, 0.4);
+		border-radius: 20px;
+		background-color: transparent;
+		padding: 5px;
+		width: 90px;
+		outline: none;
+		transition: 0.2s;
+		transition-timing-function: ease-in-out;
+	}
+
+	.close {
+		right: 10px;
+	}
+
+	.close:hover,
+	.close:focus {
+		color: red;
+		cursor: pointer;
+	}
+
+	.animate {
+		-webkit-animation: animatezoom 0.6s;
+		animation: animatezoom 0.6s;
+	}
+
+	@-webkit-keyframes animatezoom {
+		from {-webkit-transform: scale(0)} 
+		to {-webkit-transform: scale(1)}
+	}
+	  
+	@keyframes animatezoom {
+		from {transform: scale(0)} 
+		to {transform: scale(1)}
+	}
+
+/* Change styles for span and cancel button on extra small screens */
+	@media screen and (max-width: 300px) {
+		span.psw {
+		    display: block;
+		    float: none;
+		}
+	  	.cancelbtn {
+	    	width: 100%;
+	    }
+	}
+
+
+</style>
+</head>
+
+<body><div id="app">
+	<div class="container-fluid logo" >
+		<img class="img-responsive" src="thumbnail_IMG-20210221-WA0024-removebg-preview.png" width="460" height="345">
+	</div>
+
+	<div class="container-fluid btns text-center">
+		<button onclick="document.getElementById('id01').style.display='block'" class="btn" style="outline: none;">Sign in</button>
+			<div id="id01" class="modal">
+				<form class="modal-content animate" method="post" style="width: 350px;" >
+					<div class="closing">
+						<span onclick="document.getElementById('id01').style.display='none'" class="close">&times;</span>
+					</div>
+
+					<div class="container">
+
+						<h2 style="margin-top: 15px; margin-bottom: 35px; border-bottom: 1px solid #bdb6b6; padding-bottom: 5px; text-align: center;">Sign In</h2>
+				
+						<input type="text" placeholder="Enter Email" name="umail" id="signInEmail" required>
+
+						
+						<input type="password" placeholder="Enter Password" name="psw" id="signInpassword" required style="margin-bottom: 5px;">
+
+						<label style="display: table; margin-bottom: 0; font-size: small;">
+							<input type="checkbox" name="remember"> Remember me!
+						</label>
+
+						<button class="submit" type="submit" hidden>Sign in</button>
+					</div>
+
+						<div class="container" style="border-top: 1px solid #bdb6b6; padding: 5px; padding-top: 10px;">
+	      					<a href="#">Forgot password?</a>
+	    				</div>
+	    			</form>
+					<button type="button" class="btn btn-primary" v-on:click="signInstructor">Sign up</button>
+
+	    		</div>
+			
+		<button onclick="document.getElementById('id02').style.display='block'" class="btn" style="outline: none;">Sign up</button>
+			<div id="id02" class="modal" style="padding-top: 0;">
+				<form class="modal-content animate"  style="margin: 7% auto 6% auto;">
+					<div class="closing">
+						<span onclick="document.getElementById('id02').style.display='none'" class="close">&times;</span>
+					</div>
+
+					<div class="container">
+
+						<h2 style="margin-top: 15px; margin-bottom: 35px; border-bottom: 1px solid #bdb6b6; padding-bottom: 5px; text-align: center;">Sign Up</h2>
+				
+						<input type="text" placeholder="First Name" name="firstName" id="firstName" required>
+
+						<input type="text" placeholder="Last Name" name="lastName" id="lastName" required>
+
+						<input type="text" placeholder="Email" name="email" id="email" required>
+
+						<input type="password" placeholder="Enter Password" name="password" id="password" required>
+
+						<input type="password" placeholder="Confirm Password" name="password-confirm" id="password-confirm" required style="margin-bottom: 5px;">
+
+						<label style="display: table; margin-bottom: 0; font-size: small;">
+							<input type="checkbox" name="remember"> Remember me!
+						</label>
+						<button class="submit" type="submit" v-on:click="createInstructor" hidden>Sign up</button>
+
+					</div>
+
+						<div class="container" style="border-top: 1px solid #bdb6b6; padding: 5px; padding-top: 10px;"><p>By creating an accout, you agree to our <a href="#">Terms & Privacy.</a></p>
+	    				</div>
+	    			</form>
+					<button type="button" class="btn btn-primary" v-on:click="createInstructor">Sign up</button>
+	    		</div>
+	</div>
+</div>
+	<script>
+		var modal = document.getElementById('id01');
+
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+
+	<script>
+		var modal = document.getElementById('id02');
+
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
+	<script src="./main.js"></script>
+    <script>
+        const mountedApp = app.mount('#app');
+    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+ 
+
+</body>
+
+</html>

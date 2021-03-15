@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>UpSkill</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+
+	html, body {
+		height: 100%;
+		margin: 0;
+	}
+
+	.navbar {
+		margin-bottom: 0;
+		border-radius: 0;
+	}
+
+	.navbar-inverse {
+		background-color: white;
+		border: none;
+	}
+
+	.navbar-brand>img {
+    display: inline-block;
+}
+	.container-fluid {
+		min-height: 70px;
+		margin-right: 15px;
+    	margin-left: 15px;
+    	margin-top: 5px;
+		padding-top: 5px;
+	}
+
+	.row.content {
+		height: 1700px;
+	}
+
+	.sidenav {
+		background-color: #f1f1f1;
+		height: 100%;
+	}
+
+	@media screen and (max-width: 767px) {
+		.sidenav {
+			height: auto;
+			padding: 15px;
+		}
+		.row.content {
+			height: auto;
+		}
+	}
+
+    .form-control {
+    	width: 300px;
+    }
+
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+
+   
+</style>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header" style="min-height: 60px; display: inline-table;">
+				<a class="navbar-brand" href="#" style="height: auto;"><img src="thumbnail_IMG-20210221-WA0024-removebg-preview.png" width="130"></a>
+			</div>
+
+			<div class="navbar-header" style="min-height: 60px; float: right;">
+				<ul class="navbar-brand navbar-right" style="height: auto;">
+					<a class="navbar-brand" href="#" style="padding: 0;">{{instructors[0].name}}
+						<img src="instructors[0].pic" width="130">
+					</a>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<div class="container-fluid" style="margin: 0;">
+		<div class="row content">
+			<div class="col-sm-2 sidenav">
+				<ul class="nav nav-pills nav-stacked">
+					<li><a href="">My Courses</a></li>
+					<li><a href="">My Profile</a></li>
+				</ul>
+			</div>
+
+			<div class="col-sm-10" style="padding-left: 50px; padding-right: 50px; padding-top: 10px;">
+				<div class="col-sm-8 text-left">
+					<h1>My Profile</h1>
+				</div>
+
+					<div class="col-sm-8 text-left" style="padding-left: 60px; padding-right: 60px; margin-bottom: 10px">
+							<h3>Introductory Video</h3>
+					</div>
+
+					<div>
+						<video type="video/mp4" controls class="col-sm-8" id="video_import_update_video" v-bind:src="this.courses[this.course_now].vedio" alt="Card image cap" v-if="!(course_now==-1)" style="padding-left: 115px; padding-right: 115px; outline: none; width: 100%;"></video>
+					</div>
+
+				<div class="col-sm-8 text-left" style="padding-left: 60px; margin-top: 40px; margin-bottom: 10px;">
+						<h3>Profile Picture</h3>
+				</div>
+
+				<div class="container-fluid" style="margin-bottom: 50px">
+					<div class="row">
+						<div class="col-sm-6" style="display: inline-block; width: auto; padding-left: 115px;">
+							<img v-bind:src="instructors[0].pic" width="300" height="300" class="img-responsive ">	
+						</div>
+
+						<div class="col-sm-6" style=" margin-top: 5px; padding-left: 40px; display: inline-block; width: auto;">
+							<form>
+								<div class="form-group">
+				                        <label><h3 style="margin-top: 5px;">Name</h3></label>
+				                        <input type="Name" class="form-control" id="course_name" placeholder="Enter Name" v-show="course_now==-1">
+
+				                        <label><h3>Field</h3></label>
+				                        <input type="Name" class="form-control" id="course_name" placeholder="Enter Field" v-show="course_now==-1">
+
+				                        <label><h3>Bio</h3></label>
+				                        <input type="Name" class="form-control" id="course_name" placeholder="Enter Bio" v-show="course_now==-1">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="container-fluid" style="padding-left: 40px;">
+					<div class="row">
+						<div class="col-sm-4" style="margin-top: 15px; width: auto;">
+							<form>
+								<div class="form-group" style="display: inline-block;margin-right: 5px; margin-bottom: 0;">
+				                        <label><h3>Education</h3></label>
+				                        <!--<input type="Name" class="form-control" id="course_name" placeholder="Enter Education" v-show="course_now==-1" style="height: 100px;">-->
+				                        <textarea class="form-control" rows="4" placeholder="Enter Education..."></textarea>
+				                </div>
+
+				                <div class="form-group" style="display: inline-block;margin-right: 5px; margin-bottom: 0;">
+				                        <label><h3>Acievements</h3></label>
+				                        <!--<input type="Name" class="form-control" id="course_name" placeholder="Enter Acievements" v-show="course_now==-1" style="height: 100px;">-->
+				                        <textarea class="form-control" rows="4" placeholder="Enter Acievements..."></textarea>
+				                </div>
+
+				                <div class="form-group" style="display: inline-block;">
+				                        <label><h3>Professional Interests</h3></label>
+				                        <!--<input type="Name" class="form-control" id="course_name" placeholder="Enter Professional Interests" v-show="course_now==-1" style="height: 100px;">-->
+				                        <textarea class="form-control" rows="4" placeholder="Enter Professional Interests..."></textarea>
+				                </div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-sm-10 text-center" style="padding: 15px">
+				<a href="./update_profile.html" class="btn btn-info" role="button">Update</a>
+			</div>
+
+		</div>
+	</div>
+
+	<footer class="container-fluid text-center" style="margin: 0;">
+  		<p>Footer Text</p>
+	</footer>
+</body>
+
+</html>

@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "d18bad70-2919-453b-a77c-ba6ae2ee2ac5",
+		"name": "upskill",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Subjects",
+			"item": [
+				{
+					"name": "Create Subject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/createSubject?name=Math2&image=math.png",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createSubject"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Math2"
+								},
+								{
+									"key": "image",
+									"value": "math.png"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Subject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/updateSubject?uid=60o16yBEeQjm76YdCsqf&name=Math12&image=math.png",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateSubject"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "60o16yBEeQjm76YdCsqf"
+								},
+								{
+									"key": "name",
+									"value": "Math12"
+								},
+								{
+									"key": "image",
+									"value": "math.png"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subjects",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/getSubjects",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getSubjects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Subject",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/getSubject?uid=tLcwaO9cqHBDkjnIMKzz",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getSubject"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "tLcwaO9cqHBDkjnIMKzz"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Instructors",
+			"item": [
+				{
+					"name": "Create Instructor",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/createInstructor?firstName=Rola&lastName=Osta&email=test@upskill.com1&password=upskill123&biography=loves coding&achievments=&intrests=programming&education=computer science , grahic design&courses=&specilization&avatar",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createInstructor"
+							],
+							"query": [
+								{
+									"key": "firstName",
+									"value": "Rola"
+								},
+								{
+									"key": "lastName",
+									"value": "Osta"
+								},
+								{
+									"key": "email",
+									"value": "test@upskill.com1"
+								},
+								{
+									"key": "password",
+									"value": "upskill123"
+								},
+								{
+									"key": "role",
+									"value": "instructor",
+									"disabled": true
+								},
+								{
+									"key": "biography",
+									"value": "loves coding"
+								},
+								{
+									"key": "achievments",
+									"value": ""
+								},
+								{
+									"key": "intrests",
+									"value": "programming"
+								},
+								{
+									"key": "education",
+									"value": "computer science , grahic design"
+								},
+								{
+									"key": "courses",
+									"value": ""
+								},
+								{
+									"key": "specilization",
+									"value": null
+								},
+								{
+									"key": "avatar",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses",
+			"item": [
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/createCourse?instructorUid=vYv2svVPb5abVklMci0p5osOyq5c&subjectUid=tLcwaO9cqHBDkjnIMKzz&name=Laravel&introductoryVideo=video.mp4&price=12.99&biography=loves coding&courseObjectives[]=objective 1&courseObjectives[]=objective 2&keywords[]=keyword 1&keywords[]=keyword 2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createCourse"
+							],
+							"query": [
+								{
+									"key": "instructorUid",
+									"value": "vYv2svVPb5abVklMci0p5osOyq5c"
+								},
+								{
+									"key": "subjectUid",
+									"value": "tLcwaO9cqHBDkjnIMKzz"
+								},
+								{
+									"key": "name",
+									"value": "Laravel"
+								},
+								{
+									"key": "introductoryVideo",
+									"value": "video.mp4"
+								},
+								{
+									"key": "price",
+									"value": "12.99"
+								},
+								{
+									"key": "biography",
+									"value": "loves coding"
+								},
+								{
+									"key": "courseObjectives[]",
+									"value": "objective 1"
+								},
+								{
+									"key": "courseObjectives[]",
+									"value": "objective 2"
+								},
+								{
+									"key": "keywords[]",
+									"value": "keyword 1"
+								},
+								{
+									"key": "keywords[]",
+									"value": "keyword 2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/updateCourse?uid=0Y4M4AXKiMHjQ7skdq4c&instructorUid=vYv2svVPb5abVklMci0p5osOyq5c&subjectUid=OjunCYguImugjxxN2Y4U&name=Laravel&introductoryVideo=video.mp4&price=12.99&biography=loves coding&courseObjectives[]=objective 1&courseObjectives[]=objective 2&keywords[]=keyword 12&keywords[]=keyword 2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateCourse"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "0Y4M4AXKiMHjQ7skdq4c"
+								},
+								{
+									"key": "instructorUid",
+									"value": "vYv2svVPb5abVklMci0p5osOyq5c"
+								},
+								{
+									"key": "subjectUid",
+									"value": "OjunCYguImugjxxN2Y4U"
+								},
+								{
+									"key": "name",
+									"value": "Laravel"
+								},
+								{
+									"key": "introductoryVideo",
+									"value": "video.mp4"
+								},
+								{
+									"key": "price",
+									"value": "12.99"
+								},
+								{
+									"key": "biography",
+									"value": "loves coding"
+								},
+								{
+									"key": "courseObjectives[]",
+									"value": "objective 1"
+								},
+								{
+									"key": "courseObjectives[]",
+									"value": "objective 2"
+								},
+								{
+									"key": "keywords[]",
+									"value": "keyword 12"
+								},
+								{
+									"key": "keywords[]",
+									"value": "keyword 2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/getCourse?uid=0Y4M4AXKiMHjQ7skdq4c",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getCourse"
+							],
+							"query": [
+								{
+									"key": "uid",
+									"value": "0Y4M4AXKiMHjQ7skdq4c"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": [
+				{
+					"name": "Create Student",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/createStudent?name=Tawillllllllll&email=test@upskill2.com&password=upskill123&biography=loves coding&intrests=programming&courses=laravel&avatar=abed.png",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createStudent"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Tawillllllllll"
+								},
+								{
+									"key": "email",
+									"value": "test@upskill2.com"
+								},
+								{
+									"key": "password",
+									"value": "upskill123"
+								},
+								{
+									"key": "biography",
+									"value": "loves coding"
+								},
+								{
+									"key": "intrests",
+									"value": "programming"
+								},
+								{
+									"key": "courses",
+									"value": "laravel"
+								},
+								{
+									"key": "avatar",
+									"value": "abed.png"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
